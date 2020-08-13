@@ -162,7 +162,13 @@ The returned object should have the following characteristics:
 */
 
 
-function carMaker(/* code here */) {
-    /* code here */
-    
-}
+function carMaker(odometerRead) {
+    return {odometer: odometerRead, 
+      drive(distance){let new_odometer = odometerRead + distance;
+      return new_odometer;}
+    };
+};
+
+/*TEST CODE*/
+console.log(carMaker(4));
+console.log(carMaker(4).drive(5));
